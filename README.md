@@ -42,7 +42,7 @@ tensorflow-gpu 1.4.0
 Use pre-trained [AdapNet++](https://github.com/DeepSceneSeg/AdapNet-pp) models for modality 1 and modality 2 for network intialization
 
 #### Data
-```
+
 * Augment the default dataset -> augmented-dataset.
   In our case, we first resized the dataset to (768,384) and then augmented it.
   (random_flip, random_scale and random_crop)
@@ -54,15 +54,13 @@ Use pre-trained [AdapNet++](https://github.com/DeepSceneSeg/AdapNet-pp) models f
      path_to_modality1/1.png path_to_modality2/1.png path_to_label/1.png
      path_to_modality1/2.png path_to_modality2/2.png path_to_label/2.png
      ...
-
   ```
   Run from dataset folder:
   ```
      python convert_to_tfrecords.py --file path_to_.txt_file --record tf_records_name 
   ```
   (Input to model is in BGR and 'NHWC' form)
-  
-  ```
+ 
 
 
 #### Training
