@@ -20,11 +20,11 @@ year = "2018",
 
 | Dataset       | Modality1     |Modality2    | Segmented Image|
 | ------------- | ------------- |-------------|-------------   |
-| Cityscapes    |<img src="images/city1.png" width=400> | <img src="images/city1_jet.png" width=400> | <img src="images/city1_fusion.png" width=400>|
-| Forest  | <img src="images/forest2.png" width=400>  | <img src="images/forest2_evi.png" width=400>  |<img src="images/forest2_fusion.png" width=400> |
-| Sun RGB-D  | <img src="images/sun1.png" width=400>  |<img src="images/sun1_hha.png" width=400>  | <img src="images/sun1_fusion.png" width=400>|
-| Synthia  | <img src="images/synthia2.png" width=400>  |<img src="images/synthia2_jet.png" width=400>  | <img src="images/synthia2_fusion.png" width=400> |
-| Scannetv2  | <img src="images/scannet1.png" width=400>  |<img src="images/scannet1_hha.png" width=400>  |<img src="images/scannet1_fusion.png" width=400> |
+| Cityscapes    |<img src="images/city1.jpg" width=400> | <img src="images/city1_jet.jpg" width=400> | <img src="images/city1_fusion.png" width=400>|
+| Forest  | <img src="images/forest2.jpg" width=400>  | <img src="images/forest2_evi.jpg" width=400>  |<img src="images/forest2_fusion.png" width=400> |
+| Sun RGB-D  | <img src="images/sun1.jpg" width=400>  |<img src="images/sun1_hha.jpg" width=400>  | <img src="images/sun1_fusion.png" width=400>|
+| Synthia  | <img src="images/synthia2.jpg" width=400>  |<img src="images/synthia2_jet.jpg" width=400>  | <img src="images/synthia2_fusion.png" width=400> |
+| Scannetv2  | <img src="images/scannet1.jpg" width=400>  |<img src="images/scannet1_hha.jpg" width=400>  |<img src="images/scannet1_fusion.png" width=400> |
 
 
 ## System requirement
