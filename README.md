@@ -20,11 +20,11 @@ year = "2018",
 
 | Dataset       | Modality1     |Modality2    | Segmented Image|
 | ------------- | ------------- |-------------|-------------   |
-| Cityscapes    |<img src="images/city1.jpg" width=400> | <img src="images/city1_jet.jpg" width=400> | <img src="images/city1_fusion.png" width=400>|
-| Forest  | <img src="images/forest2.jpg" width=400>  | <img src="images/forest2_evi.jpg" width=400>  |<img src="images/forest2_fusion.png" width=400> |
-| SunRGB-D  | <img src="images/sun1.jpg" width=400>  |<img src="images/sun1_hha.jpg" width=400>  | <img src="images/sun1_fusion.png" width=400>|
-| Synthia  | <img src="images/synthia2.jpg" width=400>  |<img src="images/synthia2_jet.jpg" width=400>  | <img src="images/synthia2_fusion.png" width=400> |
-| Scannet v2  | <img src="images/scannet1.jpg" width=400>  |<img src="images/scannet1_hha.jpg" width=400>  |<img src="images/scannet1_fusion.png" width=400> |
+| Cityscapes    |<img src="images/city1.jpg" width=350> | <img src="images/city1_jet.jpg" width=350> | <img src="images/city1_fusion.png" width=350>|
+| Forest  | <img src="images/forest2.jpg" width=350>  | <img src="images/forest2_evi.jpg" width=350>  |<img src="images/forest2_fusion.png" width=350> |
+| SunRGB-D  | <img src="images/sun1.jpg" width=350>  |<img src="images/sun1_hha.jpg" width=350>  | <img src="images/sun1_fusion.png" width=350>|
+| Synthia  | <img src="images/synthia2.jpg" width=350>  |<img src="images/synthia2_jet.jpg" width=350>  | <img src="images/synthia2_fusion.png" width=350> |
+| Scannet v2  | <img src="images/scannet1.jpg" width=350>  |<img src="images/scannet1_hha.jpg" width=350>  |<img src="images/scannet1_fusion.png" width=350> |
 
 
 ## System requirement
@@ -72,7 +72,6 @@ Use pre-trained [AdapNet++](https://github.com/DeepSceneSeg/AdapNet-pp) models f
     checkpoint2:  path to pre-trained model for modality 2 (jet,hha,evi)
     checkpoint: path to save model
     train_data: path to dataset .tfrecords
-    dataset: name of dataset (cityscapes, forest, scannet, synthia or sun)
     batch_size: training batch size
     skip_step: how many steps to print loss 
     height: height of input image
@@ -90,7 +89,6 @@ Use pre-trained [AdapNet++](https://github.com/DeepSceneSeg/AdapNet-pp) models f
     num_classes: number of classes
     checkpoint: path to saved model
     test_data: path to dataset .tfrecords
-    dataset: name of dataset (cityscapes, forest, scannet, synthia or sun)
     batch_size: evaluation batch size
     skip_step: how many steps to print mIoU
     height: height of input image
