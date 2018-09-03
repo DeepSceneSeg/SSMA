@@ -43,7 +43,7 @@ Use pre-trained [AdapNet++](https://github.com/DeepSceneSeg/AdapNet-pp) models f
 
 #### Data
 
-* Augment the default dataset -> augmented-dataset.
+* Augment the default dataset -> augmented-training-dataset.
   In our case, we first resized the dataset to (768,384) and then augmented it.
   (random_flip, random_scale and random_crop)
 
