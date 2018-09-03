@@ -87,7 +87,7 @@ Convert it into .tfrecords format. (Use features identical to the one given in d
 ```
 #### Please refer to our [paper](https://arxiv.org/pdf/1808.03833.pdf) for:
      1. prepartion of dataset for each modality and its expert model training.
-     2  architecutre of the fusion network.
+     2  architecutre of SSMA fusion.
 ## Training and Evaluation
 
 #### Start training
