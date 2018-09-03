@@ -46,8 +46,8 @@ Use pre-trained [AdapNet++](https://github.com/DeepSceneSeg/AdapNet-pp) models f
     gpu_id: id of gpu to be used
     model: name of the model
     num_classes: number of classes
-    checkpoint1:  path to pre-trained model for modality 1
-    checkpoint2:  path to pre-trained model for modality 2
+    checkpoint1:  path to pre-trained model for modality 1 (rgb)
+    checkpoint2:  path to pre-trained model for modality 2 (jet, hha/evi)
     checkpoint: path to save model
     train_data: path to dataset .tfrecords
     dataset: name of dataset (cityscapes, forest, scannet, synthia or sun)
@@ -85,6 +85,9 @@ Convert it into .tfrecords format. (Use features identical to the one given in d
 (Input to model is in BGR and 'NHWC' form)
 
 ```
+#### Please refer to our [paper](https://arxiv.org/pdf/1808.03833.pdf) for:
+     1. prepartion of dataset for each modality and its expert model training.
+     2  architecutre of the fusion network.
 ## Training and Evaluation
 
 #### Start training
@@ -104,3 +107,5 @@ Create the config file for evaluation in config folder.
 python evaluate.py -c config cityscapes_test.config or python evaluate.py --config cityscapes_test.config
 ```
 
+## Additional Notes:
+   * We provide SSMA fusion implementation for AdapNet++ as the expert network. You can swap Adapnet++ with any network of your choosing by modifying models/ssma_helper.py script.
