@@ -1,5 +1,5 @@
 # SSMA:  Self-Supervised Model Adaptation for Multimodal Semantic Segmentation
-SSMA is a state-of-the-art deep learning fusion scheme for self-supervised multimodal semantic image segmentation, where the goal is to assign semantic labels (e.g., car, road, tree and so on) to every pixel in the input image. SSMA is easily trainable on a single GPU with 12 GB of memory and has a fast inference time. SSMA achieves state-of-the-art multimodal semantic segmentation performance on Cityscapes, Synthia, ScanNet, SUN RGB-D and Freiburg Forest datasets.
+SSMA is a state-of-the-art deep learning fusion scheme for self-supervised multimodal semantic image segmentation, where the goal is to exploit complementary features from different modalities and assign semantic labels (e.g., car, road, tree and so on) to every pixel in the input image. SSMA is easily trainable on a single GPU with 12 GB of memory and has a fast inference time. SSMA achieves state-of-the-art multimodal semantic segmentation performance on Cityscapes, Synthia, ScanNet, SUN RGB-D and Freiburg Forest datasets.
 
 This repository contains our TensorFlow implementation of SSMA which allows you to train your own model on any dataset and evaluate the results in terms of the mean IoU metric. 
 
