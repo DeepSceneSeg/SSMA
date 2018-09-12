@@ -80,8 +80,8 @@ def parser(proto_data,num_classes):
     label=tf.reshape(label,[height,width,1])
     label=tf.one_hot(label,num_classes)
     label=tf.squeeze(label, axis=2)
-    modality1=tf.reshape(image,[height,width,3])
-    modality2=tf.reshape(depth,[height,width,3])
+    modality1=tf.reshape(modality1,[height,width,3])
+    modality2=tf.reshape(modality2,[height,width,3])
     
     
 
