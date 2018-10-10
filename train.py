@@ -34,6 +34,7 @@ def train_func(config):
     images_pl1 = tf.placeholder(tf.float32, [None, config['height'], config['width'], 3])
     labels_pl = tf.placeholder(tf.float32, [None, config['height'], config['width'], config['num_classes']])
     model.build_graph(images_pl, images_pl1, labels_pl)
+    model.create_optimizer()
     config1 = tf.ConfigProto()
     config1.gpu_options.allow_growth = True
     sess = tf.Session(config=config1)
@@ -41,13 +42,9 @@ def train_func(config):
     step = 0
     total_loss = 0.0
     t0 = None
-    import_variables = tf.get_collection(tf.GraphKeys.GLOBAL_VARIABLES)
-    print 'total_variables_loaded:', len(import_variables)
     ckpt = tf.train.get_checkpoint_state(os.path.dirname(os.path.join(config['checkpoint'],
                                                                       'checkpoint')))
     if ckpt and ckpt.model_checkpoint_path:
-        model.create_optimizer()
-        sess.run(tf.global_variables_initializer())
         saver = tf.train.Saver(max_to_keep=1000)
         saver.restore(sess, ckpt.model_checkpoint_path)
         step = int(ckpt.model_checkpoint_path.split('/')[-1].split('-')[-1])+1
@@ -71,8 +68,7 @@ def train_func(config):
 
             print 'varaibles_loaded:', len(initialize_variables.keys())   
             saver = tf.train.Saver(initialize_variables)
-            saver.restore(save_path=modalities[modality], sess=sess)
-        model.create_optimizer()
+            saver.restore(save_path=modalities[modality], sess=sess
         saver = tf.train.Saver(max_to_keep=1000)   
         print 'Initialized'
     while 1:
