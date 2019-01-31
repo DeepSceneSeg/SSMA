@@ -42,7 +42,12 @@ def convert(f, record_name):
     for name in f:
         modality1 = cv2.imread(name[0])
         modality2 = cv2.imread(name[1])
-        label = cv2.imread(name[2], cv2.IMREAD_GRAYSCALE)
+        label = cv2.imread(name[2], cv2.IMREAD_ANYCOLOR)
+        try:
+            assert len(label.shape)==2
+        except AssertionError, e:
+            raise( AssertionError( "Label should be one channel!" ) )
+        
         height = modality1.shape[0]
         width = modality1.shape[1]
         modality1 = modality1.tostring()
