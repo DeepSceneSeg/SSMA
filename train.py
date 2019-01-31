@@ -52,25 +52,27 @@ def train_func(config):
         print 'Model Loaded'
 
     else:
-        modalities = {'rgb':config['checkpoint1'], 'depth':config['checkpoint2']}
-        for modality in modalities:
-            reader = tf.train.NewCheckpointReader(modalities[modality])
-            var_str = reader.debug_string()
-            name_var = re.findall('[A-Za-z0-9/:_]+ ', var_str)
-            import_variables = tf.get_collection(tf.GraphKeys.GLOBAL_VARIABLES)
-            initialize_variables = {} 
-            for var in import_variables:
-                if modality in var.name:  
-                    temp1 = var.name.replace(modality+'/', '')
-                    temp = temp1.split(':')
-                    if temp[0]+' ' in name_var:
-                        initialize_variables[temp[0]] = var
+        if 'checkpoint1' in config and 'checkpoint2' in config :
+            modalities = {'rgb':config['checkpoint1'], 'depth':config['checkpoint2']}
+            for modality in modalities:
+                reader = tf.train.NewCheckpointReader(modalities[modality])
+                var_str = reader.debug_string()
+                name_var = re.findall('[A-Za-z0-9/:_]+ ', var_str)
+                import_variables = tf.get_collection(tf.GraphKeys.GLOBAL_VARIABLES)
+                initialize_variables = {} 
+                for var in import_variables:
+                    if modality in var.name:  
+                        temp1 = var.name.replace(modality+'/', '')
+                        temp = temp1.split(':')
+                        if temp[0]+' ' in name_var:
+                            initialize_variables[temp[0]] = var
 
-            print 'varaibles_loaded:', len(initialize_variables.keys())   
-            saver = tf.train.Saver(initialize_variables)
-            saver.restore(save_path=modalities[modality], sess=sess
+                print 'varaibles_loaded:', len(initialize_variables.keys())   
+                saver = tf.train.Saver(initialize_variables)
+                saver.restore(save_path=modalities[modality], sess=sess
+                print 'Pretrained Unimodal Model Intialization'               
         saver = tf.train.Saver(max_to_keep=1000)   
-        print 'Initialized'
+        
     while 1:
         try: 
             img, label, img1 = sess.run([data_list[0], data_list[1], data_list[2]]) 
