@@ -117,6 +117,68 @@ Edit the config file for evaluation in config folder.
 python evaluate.py -c config cityscapes_test.config or python evaluate.py --config cityscapes_test.config
 ```
 
+## Models
+* All the models were trained with the full input_image and labels resized to 768x384 resolution.
+* mIoU indicates the single scale evaluation on the val set of each dataset where input_image and labels were resized to 768x384 resolution.
+* The mIoU of model checkpoints provided might slightly differ from the results reported in the paper.
+  
+#### Cityscapes (void + 11 classes) 
+  | Modality1_Modality2       | mIoU     | 
+  | :--- | ------------- |
+  | [RGB_Depth](http://deepscene.cs.uni-freiburg.de/static/models/cityscapes/cityscapes_ssma_rgb_depth.zip) | 82.29 |
+  | [RGB_HHA](http://deepscene.cs.uni-freiburg.de/static/models/cityscapes/cityscapes_ssma_rgb_hha.zip) | 82.64 |
+  
+#### Synthia (void + 11 classes) 
+  | Modality1_Modality2      | mIoU     | 
+  | :--- | ------------- |
+  | [RGB_Depth](http://deepscene.cs.uni-freiburg.de/static/models/synthia/synthia_ssma_rgb_depth.zip) | 91.25 |
+  
+  
+#### SUN RGB-D (void + 37 classes)
+  | Modality1_Modality2       | mIoU     | 
+  | :--- | ------------- |
+  | [RGB_Depth](http://deepscene.cs.uni-freiburg.de/static/models/sun_rgbd/sun_ssma_rgb_depth.zip) | 43.9 |
+  | [RGB_HHA](http://deepscene.cs.uni-freiburg.de/static/models/sun_rgbd/sun_ssma_rgb_hha.zip) | 44.3 |
+  
+#### ScanNet v2 (void + 20 classes) 
+  | Modality1_Modality2      | mIoU     | 
+  | :--- | ------------- |
+  | [RGB_Depth](http://deepscene.cs.uni-freiburg.de/static/models/scannetv2/scannetv2_ssma_rgb_depth.zip) | 66.29 |
+  | [RGB_HHA](http://deepscene.cs.uni-freiburg.de/static/models/scannetv2/scannetv2_ssma_rgb_hha.zip) | 66.34 |
+  
+#### Freiburg Forest (void + 5 classes) 
+  | Modality1_Modality2       | mIoU     | 
+  | :--- | ------------- |
+  | [RGB_Depth](http://deepscene.cs.uni-freiburg.de/static/models/forest/forest_ssma_rgb_depth.zip) | 83.81 |
+  | [RGB_EVI](http://deepscene.cs.uni-freiburg.de/static/models/forest/forest_ssma_rgb_evi.zip) | 83.9 |
+
+## Benchmark Results
+  * mIoU_val: Evaluation results on the full resolution val set (all semantic classes) as reported by the corresponding methods.
+  * mIoU_test: Evaluation results from the benchmarking server on the full resolution test set (all semantic classes).
+  * Params: Computed using the official implementation of each method.
+  * Time: Inference time computed on an NVIDIA TITAN X (PASCAL) GPU using the official implementation of each method for an input image resolution of 768x384 pixels.
+
+#### Cityscapes (Not published on the leaderboard yet)
+  | Method  | Backbone | mIoU_val (%) | mIoU_test (%) | Params (M) | Time (ms) |
+  | :--- | ------------- |------------- | ------------- | ------------- | ------------- |
+  |DRN | WideResNet-38 | 79.69 | 82.82 |129.16 | 1259.67 |
+  |DPC | Modified Xception | 80.85 | 82.66 | 41.82 | 144.41 |
+  |**SSMA** | ResNet-50 | 82.19 | 82.31| 56.44 | **101.95** |
+  |DeepLabv3+ | Modified Xception | 79.55 | 82.14 | 43.48 | 140.99 |
+  |Mapillary | WideResNet-38 | 78.31 | 82.03 | 135.86 | 214.46 |
+  |Adapnet++ | ResNet-50 | 81.24 | 81.34 | 30.20 | 72.94 |
+  |DeepLabv3 | ResNet-101 | 79.30 | 81.34 | 58.16 | 79.90 |
+  |PSPNet | ResNet-101 | 80.91 | 81.19 | 56.27 | 172.42 |
+  
+#### [ScanNet v2](http://kaldir.vc.in.tum.de/scannet_benchmark/semantic_label_2d)
+  | Method  | mIoU_test (%) |
+  | :--- | ------------- |
+  | **SSMA** |     57.7          |
+  | FuseNet |     52.1          |
+  | Adapnet++ |       50.3        | 
+  | 3DMV (2d proj) |    49.8           | 
+  | ILC-PSPNet |      47.5         |
+
 ## Additional Notes:
    * We provide SSMA fusion implementation for AdapNet++ as the expert network architecture. You can swap Adapnet++ with any network of your choice by modifying the models/ssma_helper.py script.
   * We only provide the single scale evaluation script. Multi-Scale+Flip evaluation further imporves the performance of the model.
