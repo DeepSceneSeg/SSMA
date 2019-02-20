@@ -164,7 +164,7 @@ python evaluate.py -c config cityscapes_test.config or python evaluate.py --conf
   |DRN | WideResNet-38 | 79.69 | 82.82 |129.16 | 1259.67 |
   |DPC | Modified Xception | 80.85 | 82.66 | 41.82 | 144.41 |
   |**SSMA** | ResNet-50 | 82.19 | 82.31| 56.44 | **101.95** |
-  |DeepLabv3+ | Modified Xception | 79.55 | 82.14 | 43.48 | 140.99 |
+  |DeepLabv3+ | Modified Xception | 79.55 | 82.14 | 43.48 | 127.97 |
   |Mapillary | WideResNet-38 | 78.31 | 82.03 | 135.86 | 214.46 |
   |Adapnet++ | ResNet-50 | 81.24 | 81.34 | 30.20 | 72.94 |
   |DeepLabv3 | ResNet-101 | 79.30 | 81.34 | 58.16 | 79.90 |
