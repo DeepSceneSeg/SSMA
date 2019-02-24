@@ -158,7 +158,7 @@ python evaluate.py -c config cityscapes_test.config or python evaluate.py --conf
   * Params: Computed using the official implementation of each method.
   * Time: Inference time computed on an NVIDIA TITAN X (PASCAL) GPU using the official implementation of each method for an input image resolution of 768x384 pixels.
 
-#### Cityscapes (Not published on the leaderboard yet)
+#### [Cityscapes](https://www.cityscapes-dataset.com/benchmarks/#pixel-level-results)
   | Method  | Backbone | mIoU_val (%) | mIoU_test (%) | Params (M) | Time (ms) |
   | :--- | ------------- |------------- | ------------- | ------------- | ------------- |
   |DRN | WideResNet-38 | 79.69 | 82.82 |129.16 | 1259.67 |
