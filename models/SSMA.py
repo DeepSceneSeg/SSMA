@@ -63,7 +63,7 @@ class SSMA(network_base.Network):
         
         self.in3 = self.conv_batchN_relu(self.in2, 1, 1, 256, 'conv515', relu=False)
         self.skip1_out = self.conv_bias(self.skip1_in2, 3, 1, 24, 'conv552')
-        self.skip2_out = self.conv_bias(self.skip2_in2, 3, 1, 24, 'conv553'
+        self.skip2_out = self.conv_bias(self.skip2_in2, 3, 1, 24, 'conv553')
 
         ### Upsample/Decoder
         with tf.variable_scope('conv41'):
