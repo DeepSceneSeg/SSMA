@@ -115,9 +115,9 @@ class SSMA(network_base.Network):
             self.summary_op = tf.summary.merge_all()
     
     def build_graph(self, data, data1, label=None):
-        with tf.variable_scope('rgb/resnet_v1_50'):
+        with tf.variable_scope('rgb/resnet_v2_50'):
             self.model1.build_graph(data)
-        with tf.variable_scope('depth/resnet_v1_50'):
+        with tf.variable_scope('depth/resnet_v2_50'):
             self.model2.build_graph(data1)
         self._setup()
         if self.training:
