@@ -76,7 +76,7 @@ class Network(object):
         kernelA, kernelB = tf.split(kernel, 2, 3)
         if both_atrous:
             outA = tf.nn.atrous_conv2d(inputs, kernelA, rate, padding=padding)
-            outB = tf.nn.atrous_conv2d(inputs, kernelB, rate, padding=padding)
+            outB = tf.nn.atrous_conv2d(inputs, kernelB, 2, padding=padding)
         else:
             outA = tf.nn.conv2d(inputs, kernelA, strides=strides, padding=padding)
             outB = tf.nn.atrous_conv2d(inputs, kernelB, rate, padding=padding)
@@ -217,7 +217,7 @@ class Network(object):
         with tf.variable_scope('block%d/unit_%d/bottleneck_v1'%(block, unit)):
             b_u_1r_cout = self.conv_batchN_relu(x_bn, 1, 1, out_channels/4, name='conv1')
             with tf.variable_scope('conv2'):
-                b3_u3_3_cout = self.split_conv2d(b_u_1r_cout, 3, 2, out_channels/4)
+                b3_u3_3_cout = self.split_conv2d(b_u_1r_cout, 3, 2**(unit-2), out_channels/4)
                 b3_u3_3_bnout = self.batch_norm(b3_u3_3_cout)
                 b3_u3_3_ract = tf.nn.relu(b3_u3_3_bnout)
 
@@ -227,7 +227,7 @@ class Network(object):
 
         return b3_u3_out
 
-    def unit_4(self, x, out_channels, block, unit, shortcut=False, dropout=False):
+    def unit_4(self, x, out_channels, block, unit, shortcut=False, dropout=False, rate=[2,4,16]):
         if shortcut:
             with tf.variable_scope('block%d/unit_%d/bottleneck_v1/conv3'%(block-1, 6)):
                 x_bn = tf.nn.relu(self.batch_norm(x))
@@ -238,7 +238,7 @@ class Network(object):
         with tf.variable_scope('block%d/unit_%d/bottleneck_v1'%(block, unit)):
             b_u_1r_cout = self.conv_batchN_relu(x_bn, 1, 1, out_channels/4, name='conv1')
             with tf.variable_scope('conv2'):
-                b3_u3_3_cout = self.split_conv2d(b_u_1r_cout, 3, 2, out_channels/4, both_atrous=True)
+                b3_u3_3_cout = self.split_conv2d(b_u_1r_cout, 3, rate[unit-1], out_channels/4, both_atrous=True)
                 b3_u3_3_bnout = self.batch_norm(b3_u3_3_cout)
                 b3_u3_3_ract = tf.nn.relu(b3_u3_3_bnout)
 
