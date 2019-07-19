@@ -12,12 +12,16 @@ This repository contains our TensorFlow implementation of SSMA which allows you 
 
 If you find the code useful for your research, please consider citing our paper:
 ```
-@article{valada18SSMA,
-  author = {Valada, Abhinav and Mohan, Rohit and Burgard, Wolfram},
-  title = {Self-Supervised Model Adaptation for Multimodal Semantic Segmentation},
-  journal = {arXiv preprint arXiv:1808.03833},
-  month = {August},
-  year = {2018},
+@article{valada19ijcv,
+           author = {Valada, Abhinav and Mohan, Rohit and Burgard, Wolfram},
+           title = {Self-Supervised Model Adaptation for Multimodal Semantic Segmentation},
+           journal = {International Journal of Computer Vision (IJCV)},
+           year = {2019},
+           month = {jul},
+           doi = {10.1007/s11263-019-01188-y},
+           note = {Special Issue: Deep Learning for Robotic Vision},
+           issn = {1573-1405},
+           day = {08}}
 }
 ```
 
